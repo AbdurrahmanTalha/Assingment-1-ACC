@@ -11,10 +11,11 @@ app.use(cors());
 app.use("/users", usersRoute);
 
 
+app.all("*", (req, res) => {
+    res.send("No route found");
+})
+
 app.listen(port, () => {
     console.log(`Server is running on ${port}`)
 })
 
-app.all("*", (req, res) => {
-    res.send("No route found");
-})
