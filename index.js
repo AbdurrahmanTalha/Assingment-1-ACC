@@ -14,15 +14,17 @@ app.use(cors());
 
 app.use("/users", usersRoute);
 
+app.get("/", (req,res) => {
+    res.send("Server is running")
+})
+
 
 app.all("*", (req, res) => {
     res.send("No route found");
 })
 
+
+
 app.listen(port, () => {
     console.log(`Server is running on ${port}`)
-})
-
-app.get("/", (req,res) => {
-    res.send("Server is running")
 })
